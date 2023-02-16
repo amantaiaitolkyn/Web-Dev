@@ -1,0 +1,10 @@
+<script>
+    function getLastDayOfMonth(year, month) {
+        let date = new Date(year, month + 1, 0);
+        return date.getDate();
+    }
+
+    alert( getLastDayOfMonth(2023, 2) ); 
+    alert( getLastDayOfMonth(2023, 4) ); 
+    alert( getLastDayOfMonth(2023, 3) ); 
+</script>

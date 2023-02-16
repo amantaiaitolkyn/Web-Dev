@@ -1,0 +1,11 @@
+<script>
+    function readNumber(){
+        let number;
+        do{
+            num = prompt("Please enter a number",0);
+        }while( !isFinite(num) );
+        if (number === null || number === '') return null;
+        return +num;
+    }
+    alert(readNumber());
+</script>

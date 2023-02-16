@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script>
+            let query=prompt("Please enter your status","")
+            if(query === "Admin"){
+                let password=prompt("Okay,enter your password","")
+                if(password === "TheMaster"){
+                    alert("Welcome!");
+                }else if(password === '' || password === null){
+                    alert("Canceled");
+                }else{
+                    alert("Wrong answer");
+                }
+            }else if(query === '' || query === null){
+                alert("Canceled");
+            }else{
+                alert("I don’t know you");
+            }
+        </script>
+    </body>
+</html>

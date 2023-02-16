@@ -1,0 +1,10 @@
+<script>
+    function getWeekDay(date) {
+        let days = ['SUN', 'MON', 'TUE', 'WEN', 'THI', 'FRI', 'SAT'];
+
+        return days[date.getDay()];
+    }
+
+    let date = new Date(2023, 0, 5);
+    alert( getWeekDay(date) );
+</script>

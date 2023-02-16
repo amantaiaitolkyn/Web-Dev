@@ -1,0 +1,122 @@
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffe3df;
+}
+.square1,.square2,.square3,.square4{
+    background-color: rgb(126, 68, 68);
+    display: flex;
+    width:1440px;
+    height:80px;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+.square2{
+    top:740px;
+}
+.square3,.square4{
+    width:80px;
+    height:800px;
+    top:0px;
+    left:0px;
+}
+.square4{
+    left:1360px;
+}
+#newtask{
+    position: relative;
+    padding: 30px 20px;
+}
+#newtask input{
+    position:absolute;
+    top:330px;
+    left:500px;
+    width:400px;
+    height:30px;
+    font-size:17px;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid #e9a9a1;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+#newtask input:focus{
+    outline: none;
+    border-color: #9a3131;
+}
+#newtask input:hover{
+    background-color: #ffebe8;
+}
+#newtask button{
+    position:absolute;
+    top:325px;
+    left: 920px;
+    padding: 8px 15px;
+    color: white;
+    background-color: #e9a9a1;
+    border-radius: 8px;
+    border:none;
+    text-align: center;
+    font-size:17px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+#newtask button:hover{
+    background-color: #d35443;
+}
+#tasks{
+    border-radius: 10px;
+    width: 400px;
+    height: 60px;
+    background-color:  #ffe3df;
+    position: absolute;
+    padding: 30px 20px;
+    margin-top: 10px;
+    left:500px;
+    top:390px; 
+}
+
+.task{
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px double #853b22;
+    cursor: pointer;
+    height: 50px;
+    padding: 5px 10px;
+    margin-bottom: 8px;
+    display: flex;
+}
+.task span{
+    font-size: 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+.task button{
+    background-color: white;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border: 2px dashed #c46140;
+    width: 25px;
+    height:25px;
+    border-radius: 360px;
+}
+.task button:hover{
+    background-color: rgb(147, 196, 146);
+    border:none;
+}
+h2{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:60px;
+    position: absolute;
+    top:200px;
+    left:580px;
+    color: #450c1b;
+}

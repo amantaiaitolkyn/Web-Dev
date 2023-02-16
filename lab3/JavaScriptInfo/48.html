@@ -1,0 +1,16 @@
+<script>
+    function getMaxSubSum(arr) {
+        let mSum = 0;
+        let sum = 0;
+
+        for (let i of arr) { 
+            sum += i; 
+            mSum = Math.max(mSum, sum); 
+            if (sum < 0) sum= 0;
+        }
+
+        return mSum;
+    }
+    alert( getMaxSubSum([-1, 2, 3, -9]) );
+    alert( getMaxSubSum([-1, 2, 3, -9, 11]) );
+</script>
