@@ -1,0 +1,27 @@
+
+<div *ngFor="let product of products">
+
+  <h3>
+    {{ product.name }}
+  </h3>
+  
+
+  <img class="item1" src={{product.image}} width="160">
+
+  <p *ngIf="product.description" class="text1">
+    <strong>Description:</strong> {{ product.description }}
+  </p>
+
+  <p class="price">Price: {{ product.price}}тг </p>
+
+
+  <a href={{product.link}}><img src="https://kaspi.kz/img/main_logo.svg" width="170"></a>
+  <p class="rating">Rating: {{ product.rating}}<img src="https://pngicon.ru/file/uploads/zvezda.png" width="22" height="20"></p>
+
+  <a [routerLink]="['/products', product.id]">
+    <button type="button">
+      Share
+    </button>
+  </a>
+
+</div>

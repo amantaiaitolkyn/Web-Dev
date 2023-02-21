@@ -1,0 +1,45 @@
+h3{
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(104, 36, 36);
+  font-size: 23px;
+}
+
+.text1{
+  width:360px;
+  font-size: 20px;
+  color:rgb(102, 69, 25);
+  font-weight:600;
+  font-family: Arial, Helvetica, sans-serif;
+  /* position:absolute;
+  left: 230px;
+  top:300px; */
+}
+strong{
+  font-family: Arial, Helvetica, sans-serif;
+  color:black
+}
+button{
+  border-radius: 12px;
+  background-color:rgb(83, 28, 134);
+}
+.price{
+  border: 6px double rgb(160, 26, 26);
+  padding:2px 6px 2px;
+  width:180px;
+  font-size: 16px;
+  border-radius: 13px;
+  text-align: center;
+  color: rgb(129, 68, 121);
+  font-weight: 600;
+}
+.rating{
+  font-weight: 600;
+  font-size: medium;
+  color: black;
+  text-decoration: underline;
+}
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+*/
