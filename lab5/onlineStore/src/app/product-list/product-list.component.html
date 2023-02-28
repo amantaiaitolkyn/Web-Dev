@@ -1,0 +1,60 @@
+
+  <div class="items" *ngFor="let product of products">
+    <div  class="items1" *ngIf="categoryy == product.category">
+
+      <h3>
+        {{ product.name }}
+      </h3>
+
+
+      <img class="item1" src={{product.image}} width="160">
+
+      <p *ngIf="product.description" class="text1">
+        <strong>Description:</strong> {{ product.description }}
+      </p>
+
+      <p class="price">Price: {{ product.price}}тг </p>
+
+
+      <a href={{product.link}}><img src="https://kaspi.kz/img/main_logo.svg" width="170"></a>
+      <p class="rating">Rating: {{ product.rating}}<img src="https://pngicon.ru/file/uploads/zvezda.png" width="22" height="20"></p>
+      <div>
+        <button class="bb" (click)="product.like=product.like+1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_corazón.svg/1200px-Heart_corazón.svg.png" width="40"></button>
+        <h1 class="text2">{{ product.like}}</h1>
+      </div>
+
+      <span><button class="bb" (click)="removeItem(product.id)" >
+        <img src="https://thumbs.dreamstime.com/b/мусорное-ведро-или-значок-логотип-символа-мусорного-бака-137649856.jpg" width="100"></button>
+      </span>
+
+      <a [routerLink]="['/products', product.id]">
+        <button class="b" type="button">
+          Share
+        </button>
+      </a>
+    </div>
+
+  </div>
+
+<!--<h3>-->
+<!--  {{ products.name }}-->
+<!--</h3>-->
+
+
+<!--<img class="item1" src={{products.image}} width="160">-->
+
+<!--<p *ngIf="products.description" class="text1">-->
+<!--  <strong>Description:</strong> {{ products.description }}-->
+<!--</p>-->
+
+<!--<p class="price">Price: {{ products.price}}тг </p>-->
+
+
+<!--<a href={{products.link}}><img src="https://kaspi.kz/img/main_logo.svg" width="170"></a>-->
+<!--<p class="rating">Rating: {{ products.rating}}<img src="https://pngicon.ru/file/uploads/zvezda.png" width="22" height="20"></p>-->
+
+<!--<a [routerLink]="['/products', products.id]">-->
+<!--  <button type="button">-->
+<!--    Share-->
+<!--  </button>-->
+<!--</a>-->

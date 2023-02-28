@@ -1,0 +1,22 @@
+
+h1{
+  color: white;
+  font-weight: 600;
+  font-family:Impact, fantasy;
+  font-size:60px;
+  position: absolute;
+  left: 80px;
+  top:30px;
+}
+.image1{
+  position: absolute;
+  left:330px;
+  top:30px;
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+*/

@@ -1,0 +1,20 @@
+<h1>Select Category</h1>
+<div>
+    <span *ngFor="let category of categories">
+                <button type="button" (click)="selectItem(category.name)">
+                    {{category.name}}
+                </button>
+    </span>
+    <div>
+        <img class="i1" src="https://www.frost.com/wp-content/uploads/2020/09/OnlineRetailing-CEA-525969104.jpg" width="330" height="280">
+        <img class="i2" src="https://www.thespruce.com/thmb/5CyZdubHtZY72pOA3V1E8VLltxs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-clean-your-shoes-4164257-01-6c34d623fbe0428aa8459e740463fcc2.jpg" width="330" height="280">
+        <img class="i3" src="https://www.greenqueen.com.hk/wp-content/uploads/2021/07/Rental-Fashion-Causes-More-Emissions-Than-Throwing-Clothes-Away-450x300.jpg" width="330" height="280">
+        <img class="i4" src="https://www.theorganicsupermart.com/wp-content/uploads/2022/08/flat-lay-natural-self-care-products-composition-scaled.jpg" width="330" height="280">
+    </div>
+    <span *ngFor="let category of categories">
+        <span *ngIf="choice == category.name">
+            <app-product-list [categoryy]="category.name"></app-product-list>
+<!--            <div class="container"><router-outlet [categoryy]="category.name"></router-outlet></div>-->
+        </span>
+    </span>
+</div>

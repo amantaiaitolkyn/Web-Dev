@@ -1,0 +1,8 @@
+<h2>Product sharing</h2>
+
+<div *ngIf="product">
+  <h3><em>Social networks:</em></h3>
+  <a class="i1" href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text={{product.link}}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png" width="45" ></a>
+  <a class="i2" href="https://t.me/share/url?url={{product.link}}&text={{product.link}}"><img src="https://web.tlgrm.app/icon-192x192.png" width="45"></a>
+   
+</div>
