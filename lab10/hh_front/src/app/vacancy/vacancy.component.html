@@ -1,0 +1,31 @@
+<fieldset>
+  <p>Add vacancy</p>
+  <label>Name</label>
+  <input type="text" [(ngModel)]="newName">
+  <label>Description</label>
+  <input type="text" [(ngModel)]="newDesc">
+  <label>Company_id</label>
+  <input type="text" [(ngModel)]=company_idd>
+  <label>Salary</label>
+  <input type="text" [(ngModel)]=salary>
+  <button (click)="addVacancy()">Add</button>
+</fieldset>
+<p>Vacancy list:</p>
+<div *ngFor="let vacancy of vacancies">
+  <div  *ngIf="company_id == vacancy.company">
+    <fieldset>
+      <label>{{vacancy.id}}-{{vacancy.name}}-{{vacancy.company}}</label>
+      <p>Update</p>
+      <br>
+      <label>Name</label>
+      <input [(ngModel)]="updatedName">
+      <label>Description</label>
+      <input [(ngModel)]="updatedDesc">
+      <label>Salary</label>
+      <input [(ngModel)]="updatedSalary">
+      <button (click)="updateName(vacancy,vacancy.id)">Save</button>
+      <button (click)="deleteVacancy(vacancy.id)">Delete</button>
+    </fieldset>
+  </div>
+</div>
+

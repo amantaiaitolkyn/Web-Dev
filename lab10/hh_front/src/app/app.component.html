@@ -1,0 +1,33 @@
+<script src="app.component.ts"></script><h1>Companies</h1>
+<fieldset>
+  <label>Company name</label>
+  <input type="text" [(ngModel)]="newCompanyName">
+  <label>Description</label>
+  <input type="text" [(ngModel)]="newCompanyDesc">
+  <label>City</label>
+  <input type="text" [(ngModel)]="newCompanyCity">
+  <label>Address</label>
+  <input type="text" [(ngModel)]="newCompanyAddress">
+  <button (click)="addCompany()">Add Company</button>
+</fieldset>
+<ul>
+  <li *ngFor="let company of companies">
+    {{company.id}}- <button type="button" (click)="viewVacancy(company.id)"> {{company.name}} </button>
+          <div *ngIf="choice == company.id">
+              <app-vacancy [company_id]=choice></app-vacancy>
+          </div>
+    <button (click)="deleteCompany(company.id)">Delete</button>
+    <fieldset>
+      <label>Name</label>
+      <input [(ngModel)]="updatedName">
+      <label>Description</label>
+      <input [(ngModel)]="updatedDesc">
+      <label>City</label>
+      <input [(ngModel)]="updatedCity">
+      <label>Address</label>
+      <input [(ngModel)]="updatedAddress">
+      <button (click)="update(company,company.id)">Save</button>
+    </fieldset>
+  </li>
+</ul>
+
