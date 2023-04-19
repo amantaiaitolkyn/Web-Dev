@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40a47767-4c74-4165-ae67-c682835ecdec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../hh_front/src/app/models.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/views/cbv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/fbv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab7/Task2/firstproj/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab7/Task2/firstproj/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab8/shop_back/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab8/shop_back/api/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab8/shop_back/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab8/shop_back/api/views.py" afterDir="false" />
@@ -104,7 +106,8 @@
       <workItem from="1681402376401" duration="3118000" />
       <workItem from="1681470012448" duration="5231000" />
       <workItem from="1681621789475" duration="7645000" />
-      <workItem from="1681749982433" duration="9246000" />
+      <workItem from="1681749982433" duration="9843000" />
+      <workItem from="1681897632700" duration="3770000" />
     </task>
     <servers />
   </component>

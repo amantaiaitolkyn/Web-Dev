@@ -27,6 +27,7 @@ export class VacancyService {
     )
   }
   updateName(vacancy: Vacancy,newName: string,newDesc:string,newSalary:number,id: number): Observable<Vacancy>{
-    return this.client.put<Vacancy>(`${this.BASE_URL}/api/vacancies/${id}/`, {name:newName,description:newDesc,salary:newSalary});
+    return this.client.put<Vacancy>(`${this.BASE_URL}/api/vacancies/${id}/`, {name:newName,description:newDesc,salary:newSalary
+    });
   }
 }

@@ -1,21 +1,23 @@
-from django.shortcuts import render
-from django.http.response import JsonResponse
-from django.http.response import HttpResponse
-import json
+from django.http import JsonResponse
+from django.shortcuts import Http404
 
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-from api import models
 from api.models import Company, Vacancy
 from api.serializers import CompanySerializer1, VacancySerializer2
 
-@csrf_exempt
-def company_list(request):
-    if request.method == 'GET':
+import json
+
+
+class CompanyListAPIView(APIView):
+    def get(self,request):
         companies = Company.objects.all()
         serializer = CompanySerializer1(companies, many=True)
-        return JsonResponse(serializer.data, safe=False)
-    if request.method == 'POST':
+        return Response(serializer.data)
+
+    def post(self, request):
         data = json.loads(request.body)
         company_name = data.get('name', '')
         desc = data.get('description', '')
@@ -25,19 +27,20 @@ def company_list(request):
         return JsonResponse({'Created'})
 
 
+class CompanyDetailAPIView(APIView):
+    def get_object(self, company_id):
+        try:
+            return Company.objects.get(pk=company_id)
+        except Company.DoesNotExist as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
 
-@csrf_exempt
-def company_detail(request, company_id):
-    try:
-        company = Company.objects.get(id=company_id)
-    except Company.DoesNotExist as e:
-        return JsonResponse({'error': str(e)}, status=400)
-    if request.method == 'GET':
-        return JsonResponse(company.to_json_c(), status=200)
-    elif request.method == 'DELETE':
-        company.delete()
-        return JsonResponse({'deleted': True})
-    elif request.method == 'PUT':
+    def get(self, request, company_id):
+        instance = self.get_object(company_id)
+        serializer = CompanySerializer1(instance)
+        return Response(serializer.data)
+
+    def put(self, request, company_id):
+        company = self.get_object(company_id)
         data = json.loads(request.body)
         new_company_name = data.get('name', company.name)
         new_company_desc = data.get('description', company.description)
@@ -51,24 +54,18 @@ def company_detail(request, company_id):
         serializer = CompanySerializer1(company, many=True)
         return JsonResponse(serializer.data, safe=False)
 
-@csrf_exempt
-def vacancy_by_company(request, company_id):
-    try:
-        vacancies = models.Vacancy.objects.all()
-        vacancies2 = vacancies.filter(company=company_id)
-        serializer = VacancySerializer2(vacancies2, many=True)
-        return JsonResponse(serializer.data, safe=False)
-    except:
-        return JsonResponse({'error': ' This company does not contain any vacancies'})
-
-
-@csrf_exempt
-def vacancy_list(request):
-    if request.method == 'GET':
+    def delete(self, request, company_id):
+        instance = self.get_object(company_id)
+        instance.delete()
+        return Response({'deleted': True})
+class VacancyListAPIView(APIView):
+    def get(self,request):
         vacancies = Vacancy.objects.all()
         serializer = VacancySerializer2(vacancies, many=True)
         return JsonResponse(serializer.data, safe=False)
-    if request.method == 'POST':
+
+
+    def post(self, request):
         data = json.loads(request.body)
         serializer = VacancySerializer2(data=data)
         if serializer.is_valid():
@@ -76,19 +73,21 @@ def vacancy_list(request):
             return JsonResponse(serializer.data)
         return JsonResponse(serializer.errors, status=400)
 
-@csrf_exempt
-def vacancy_detail(request, vacancy_id):
-    try:
-        vacancy = Vacancy.objects.get(id=vacancy_id)
-    except Vacancy.DoesNotExist as e:
-        return JsonResponse({'error': str(e)}, status=400)
 
-    if request.method == 'GET':
-        return JsonResponse(vacancy.to_json_v(), status=200)
-    elif request.method == 'DELETE':
-        vacancy.delete()
-        return JsonResponse({'deleted': True})
-    elif request.method == 'PUT':
+class VacancyDetailAPIView(APIView):
+    def get_object(self, vacancy_id):
+        try:
+            return Vacancy.objects.get(pk=vacancy_id)
+        except Vacancy.DoesNotExist as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, vacancy_id):
+        instance = self.get_object(vacancy_id)
+        serializer = VacancySerializer2(instance)
+        return Response(serializer.data)
+
+    def put(self, request, vacancy_id):
+        vacancy = self.get_object(vacancy_id)
         data = json.loads(request.body)
         new_vacancy_name = data.get('name', vacancy.name)
         new_vacancy_desc = data.get('description', vacancy.description)
@@ -100,11 +99,7 @@ def vacancy_detail(request, vacancy_id):
         serializer = VacancySerializer2(vacancy, many=True)
         return JsonResponse(serializer.data, safe=False)
 
-
-def top_ten_vacancies(request):
-    if request.method == 'GET':
-        vacancies = Vacancy.objects.all().order_by('-salary')[:10]
-        serializer = VacancySerializer2(vacancies, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-# Create your views here.
+    def delete(self, request, vacancy_id):
+        instance = self.get_object(vacancy_id)
+        instance.delete()
+        return Response({'deleted': True})
